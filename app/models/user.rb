@@ -34,7 +34,7 @@ class User < ActiveRecord::Base
     if first_name.blank?
       last_name
     else
-      [last_name, first_name].compact.join(', ')
+      [first_name, last_name].compact.join(', ')
     end
   end
 

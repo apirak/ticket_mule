@@ -26,6 +26,7 @@ Rails::Initializer.run do |config|
   config.gem 'prawn'
   config.gem 'populator'
   config.gem 'faker'
+  config.gem 'fastercsv'
 
   # Only load the plugins named here, in the order given. By default, all plugins
   # in vendor/plugins are loaded in alphabetical order.

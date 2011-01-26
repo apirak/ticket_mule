@@ -44,7 +44,11 @@
   <label for="filter-end">To</label>
   <%= f.text_field :created_at_lt, :size => 11, :id => 'filter-end', :class => 'textfield' -%>
   </p>
-
+  <!--
+  <p>
+  <label for="filter-end"><%= check_box :options, :request_csv %> CSV</label>
+  </p>
+  -->
   <p><%= f.submit "Submit", :class => "button" %></p>
 <% end %>
 </div>

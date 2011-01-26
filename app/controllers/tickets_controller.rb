@@ -44,6 +44,23 @@ class TicketsController < ApplicationController
       format.html # index.html.erb
       format.js # index.js.erb
       format.xml  { render :xml => @tickets }
+      format.csv {
+        csv_string = FasterCSV.generate do |csv|
+          @tickets.each do |e|
+            values = [e.priority_id, 
+              e.id, 
+              e.title, 
+              e.group.name, 
+              e.status.name, 
+              e.contact.full_name,
+              e.updated_at.strftime("%d %b %Y %I:%M %p")]
+            csv << values
+          end
+        end
+
+        send_data csv_string, :type => "text/plain", :filename=> "tickets.csv", 
+          :disposition => 'attachment'
+      }
     end
   end
 
